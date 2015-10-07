@@ -4,10 +4,12 @@
  
 main()
 {
-   int i, j;
-   initwindow(1150,500,"Windows BGI Garage");
+   int i, j, gd = DETECT, gm;
+   initwindow(1000,550);
+   initgraph(&gd,&gm,"C:\\TC\\BGI");
    
 
+   setviewport(0,0,1100,600,1);
  
    for( i = 0 ; i <= 800 ; i = i + 10 )
    {
@@ -44,11 +46,11 @@ main()
 	  clearviewport();
       if( i == 800 )
       break;
-      cleardevice();
+      clearviewport();
       
 
    }
-       for( j = 0 ; j <= 800 ; j = j - 5 )
+       for( j = 0 ; j <= 50 ; j = j - 5 )
 	  {
 	  
       setcolor(YELLOW);
@@ -80,64 +82,13 @@ main()
       
       setcolor(WHITE);
       rectangle(875,300+j,925,400+j);
-      delay(100);
-      cleardevice();
-      if( 300+j == 50 )
+      delay(200);
+      if( j == 150 )
       break;
-      cleardevice();
+      clearviewport();
       
     }
 
-      setcolor(YELLOW);
-      settextstyle(SIMPLEX_FONT,HORIZ_DIR,2);
-	  line(50,25,1050,25);
-	  line(50,25,50,150);
-	  outtextxy(100, 25, "1");
-      line(150,25,150,150);
-      outtextxy(200, 25, "2");
-	  line(250,25,250,150);
-	  outtextxy(300, 25, "3");
-	  line(350,25,350,150);
-	  outtextxy(400, 25, "4");
-	  line(450,25,450,150);
-	  outtextxy(500, 25, "5");
-	  line(550,25,550,150);
-	  outtextxy(600, 25, "6");
-	  line(650,25,650,150);
-	  outtextxy(700, 25, "7");
-	  line(750,25,750,150);
-	  outtextxy(800, 25, "8");
-	  line(850,25,850,150);
-	  outtextxy(900, 25, "9");
-	  line(950,25,950,150);
-	  outtextxy(1000, 25, "0");
-	  line(1050,25,1050,150);
-      setcolor(GREEN);
-      rectangle(875,50,925,150);
-      outtextxy(50, 225, "car parked in slot 9");
-      delay(500);
-      setcolor(LIGHTCYAN);
-      outtextxy(50, 250, "press any key to exit...");
-   
-   getch();
-   closegraph();
-   return 0;
-}
-
-
-
-
-#include <graphics.h>
-#include <conio.h>
- 
-main()
-{
-   int gd=DETECT,gm,points[]={100,150,100,300,150,300,150,150,100,150};
- 
-   initgraph(&gd, &gm, "C:\\TC\\BGI");
- 
-   drawpoly(5, points);
- 
    getch();
    closegraph();
    return 0;
