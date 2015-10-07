@@ -1,3 +1,6 @@
+authored by: Suraj Gaud
+
+
 #include <graphics.h>
 #include <dos.h>
 #include <conio.h> 

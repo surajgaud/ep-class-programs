@@ -1,3 +1,6 @@
+authored by: Suraj Gaud
+
+
 1. Implement a Point class for three-dimensional point (x, y, z). Include constructors, destructors, and accessors. Include member functions such as magnitude and argument calculators.
 
 

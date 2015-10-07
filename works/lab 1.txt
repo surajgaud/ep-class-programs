@@ -1,3 +1,7 @@
+authored by : suraj gaud
+
+
+
 1. Write a program to find the integer square root of a given number. Hint: The largest integer whose square is less than or equal to the given number.
 
 #include <iostream>
