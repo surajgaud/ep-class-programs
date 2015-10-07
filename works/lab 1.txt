@@ -1,0 +1,147 @@
+1. Write a program to find the integer square root of a given number. Hint: The largest integer whose square is less than or equal to the given number.
+
+#include <iostream>
+
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//Write a program to find the integer square root of a given number.
+// Hint: The largest integer whose square is less than or equal to the given number
+
+int main(int argc, char** argv) 
+{
+	int base = 1;  //taking base as 1 and increasing it 
+	int anyNum; // input any number from the command window
+	cout<<"Enter the number to find its given integer square root: ";
+	cin >> anyNum;
+	do
+	{
+		
+		base++;
+		
+	}
+	while ((base*base)<anyNum);
+	cout<<"\n \n \n";
+	cout<<"The integer square root is: "<<base-1<<endl;
+	
+	return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Given two positive integers m and n such that m<n, the greatest common divisor of m and n is the same as the greatest common divisor of m and (n-m).
+ Use this fact to write a program to return their greatest common divisor.
+
+ /*2. Given two positive integers m and n such that m<n,
+the greatest common divisor of m and n is the same as the greatest common divisor of m and (n-m).
+Use this fact to write a program to return their greatest common divisor. */ 
+ 
+#include<conio.h>    
+#include <iostream>     
+#include <math.h>
+
+using namespace std;
+
+int gcd(int m, int n);      // for this program i have created a function named gcd
+                            // this function has the value of m and n and is called 
+int main()                  // when i need to calculate the gcd given m<n
+
+{ 
+    int m,n;
+     cout<<" enter m : ";    // user input for m
+     cin>>m;
+     cout<<"enter n : ";    // user input for n
+     cin>>n;
+     cout<<"\n The GCD of " << m ;
+     cout<<" and " << n << " is " ;
+     cout<<gcd(m, n) << ".\n";      // calling the gcd function
+     return 0;
+}
+
+int gcd(int m, int n)        //operation
+{
+if (m<1 || n<1)             // if values less than 1 display error    
+    {
+        cout<< "\n\n Error \n";
+        exit(1);
+    }
+    
+    else if (m == n)        // if m and n equal display m, display the same number  
+        return m;
+     if (m<n)
+        return gcd(m,(n-m));   // main condition, for calculation of gcd 
+    else                       // as given in the question gcd of m<n is equal to 
+        return gcd(n,(m-n));   // gcd of m and n-m, similarly i applied the logic here
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3, Apply the Babylonian Algorithm to compute the square root of 2.The algorithm computes the square root of 2 by repeatedly replacing one estimate of x with the closer estimate of (x + 2/x)/2, the average of x and 2/x.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+int n = 2, count(20);
+double root_n, estimate, r;
+
+
+cout << "Following computes the square root of 2\n";
+cout << "using the Babylonian algorithm, by a user defined random approximate value.\n \n \n \n";
+cout << "Please enter a estimate of x:\n";       //the smaller estimate gives more accurate results.
+cin >> estimate;
+
+r = n/estimate;
+estimate = (estimate + r)/2;                  //using the approximation formula
+
+while (count > 0)
+{
+r = n/estimate;
+estimate = (estimate + r)/2;
+
+if (estimate <= (estimate * 0.01) + estimate)    //if the value of the estimate is less equal to 
+root_n = estimate;                               // the smallest possible estimate gives a more
+else                                             // accurate answer
+r = n/estimate;                                  // otherwise the count increases and estimation is again repeated
+estimate = (estimate + r)/2;                     // untill we get the closest answer 
+
+count-=1;
+}
+
+
+cout << "The sqaure root of 2 is " << root_n;
+cout << endl;
+
+
+return 0;
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.  The value for PI can be estimated by the series PI = 4 × (1 - 1/3 + 1/5 - 1/7 + 1/9 - 1/11 + 1/13 - 1/15 + 1/17 - ? ) 
+Write an interactive program that asks the user for the number of terms to be used for the series. Then calculate and display the approximation. Test your program for 10, 20, 30 and 100
+
+
+#include <iostream>
+using namespace std;
+int main()
+{      
+    int a, val;
+    double pi = 0.0;
+    cout << "please enter the number of terms you want for approximation: ";
+    cin >> val;
+  
+for ( a = 1; a <= val; a++) 
+  {
+    if (a%2==0)
+	 {
+        pi = pi - (4.0 / (2 * a - 1));  //using the formula for even numbers
+     }
+else {
+        pi = pi + (4.0 / (2 * a - 1)); // using the formula for odd number
+     }
+  }
+  cout<<"\n \n \n";
+  cout <<"the approximate value is: "<< pi << endl;
+}
