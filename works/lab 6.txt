@@ -1,0 +1,95 @@
+#include <graphics.h>
+#include <dos.h>
+#include <conio.h> 
+ 
+main()
+{
+   int i, j, gd = DETECT, gm;
+   initwindow(1000,550);
+   initgraph(&gd,&gm,"C:\\TC\\BGI");
+   
+
+   setviewport(0,0,1100,600,1);
+ 
+   for( i = 0 ; i <= 800 ; i = i + 10 )
+   {
+      setcolor(YELLOW);
+      settextstyle(SIMPLEX_FONT,HORIZ_DIR,2);
+	  line(50,25,1050,25);
+	  line(50,25,50,150);
+	  outtextxy(100, 25, "1");
+      line(150,25,150,150);
+      outtextxy(200, 25, "2");
+	  line(250,25,250,150);
+	  outtextxy(300, 25, "3");
+	  line(350,25,350,150);
+	  outtextxy(400, 25, "4");
+	  line(450,25,450,150);
+	  outtextxy(500, 25, "5");
+	  line(550,25,550,150);
+	  outtextxy(600, 25, "6");
+	  line(650,25,650,150);
+	  outtextxy(700, 25, "7");
+	  line(750,25,750,150);
+	  outtextxy(800, 25, "8");
+	  line(850,25,850,150);
+	  outtextxy(900, 25, "9");
+	  line(950,25,950,150);
+	  outtextxy(1000, 25, "0");
+	  line(1050,25,1050,150);
+	  setcolor(LIGHTCYAN);
+	  outtextxy(50, 200, "welcome to garage tan960, please park in slot 9");
+	  
+      setcolor(WHITE);
+	  rectangle(50+i,400,150+i,350);
+	  delay(100);
+	  clearviewport();
+      if( i == 800 )
+      break;
+      clearviewport();
+      
+
+   }
+       for( j = 0 ; j <= 50 ; j = j - 5 )
+	  {
+	  
+      setcolor(YELLOW);
+      settextstyle(SIMPLEX_FONT,HORIZ_DIR,2);
+	  line(50,25,1050,25);
+	  line(50,25,50,150);
+	  outtextxy(100, 25, "1");
+      line(150,25,150,150);
+      outtextxy(200, 25, "2");
+	  line(250,25,250,150);
+	  outtextxy(300, 25, "3");
+	  line(350,25,350,150);
+	  outtextxy(400, 25, "4");
+	  line(450,25,450,150);
+	  outtextxy(500, 25, "5");
+	  line(550,25,550,150);
+	  outtextxy(600, 25, "6");
+	  line(650,25,650,150);
+	  outtextxy(700, 25, "7");
+	  line(750,25,750,150);
+	  outtextxy(800, 25, "8");
+	  line(850,25,850,150);
+	  outtextxy(900, 25, "9");
+	  line(950,25,950,150);
+	  outtextxy(1000, 25, "0");
+	  line(1050,25,1050,150);
+	  setcolor(LIGHTCYAN);
+	  outtextxy(50, 200, "welcome to garage tan960, please park in slot 9");
+      
+      setcolor(WHITE);
+      rectangle(875,300+j,925,400+j);
+      delay(200);
+      if( j == 150 )
+      break;
+      clearviewport();
+      
+    }
+
+   getch();
+   closegraph();
+   return 0;
+}

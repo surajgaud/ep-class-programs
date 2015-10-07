@@ -1,0 +1,358 @@
+1. Implement a Point class for three-dimensional point (x, y, z). Include constructors, destructors, and accessors. Include member functions such as magnitude and argument calculators.
+
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+class Point {
+private: 
+       float x, y, z;
+       
+
+public:
+      	 
+	  Point()    //default destructor
+	  { 
+	  	x = 0;
+	  	y = 0;
+	  	z = 0;
+	  }
+	  Point(float a, float b, float c)
+	  {
+                 x = a;
+				 y = b;
+				 z = c;	  	
+	  }
+	  
+
+	  float  magnitude()
+	  {
+	  	return sqrt(x*x + y*y + z*z);
+	  }
+	  int arg()                   //to find the angle between two vectors
+	  {  
+	  
+	    double x;
+		double y;
+		                          // use cos inv (a*b)/abs a*abs b 
+	  	double result = acos ((x/y)* 180.0/3.1415926);
+	  	return result;
+	  }
+ 	
+};  
+
+
+int main() {
+	int a,b,c;
+	cout<<"Input values for x y z"<<endl;
+	cin>>a;
+	cin>>b;
+	cin>>c;
+	
+	Point magni(a,b,c);
+	cout<< "the magnitude is "<<magni.magnitude();
+	cout<<endl;
+	Point argu(a,b,c);
+	cout<<"the arguement is "<<argu.arg();
+	
+	
+	return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Implement a Matrix class for 2x2 matrices. Include constructors, destructors, and accessors. Include an inverse() function that returns the inverse of the matrix, a det() function that returns the determinant of the matrix, a Boolean function isSingular() that returns 1 or 0 according to whether the determinant is zero and a print() function to display the matrix. You may use 4 scalar variables for the elements.
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+
+class matrix{
+	private:protected:    //constructor
+	          int a,b,c,d;
+	public: 
+	
+	matrix()               //default values
+	{
+		a = 0;
+		b = 0;
+		c = 0;
+		d = 0;
+	}  
+	          
+	
+	matrix(int w,int x, int y, int z)
+	{
+	
+	           a = w;
+			   b = x;
+			   c = y;
+			   d = z;
+    }
+	
+   	int det()          //function to calculate determinant
+	{
+		return (a*d) - (b*c);
+	}
+	
+	int inv()
+	{
+	  int det = (a*d) - (b*c);            //function to calculate inverse
+	  int p = (d/det);
+	  int q = (-b/det);
+	  int r = (-c/det);
+	  int s = (a/det);
+	  
+	  cout<<p<<" "<<q<<endl;
+	  cout<<r<<" "<<s<<endl;
+	}
+	
+	int isSingular()             //function to calculate if value singular or not
+	{
+		bool det = (a*d - b*c);
+		if (det != 0)
+		return 1;
+		else return 0;
+	}
+	
+	void print()
+	{
+		cout<<a<<" "<<b<<endl;
+		cout<<c<<" "<<d<<endl;
+	}
+};
+
+int main()             //main function
+{
+	int a,b,c,d;
+	cout<< "enter the values for matrix : "<<endl;
+	cin>>a>>b>>c>>d;
+	
+	matrix inp_val(a,b,c,d);
+	
+	cout<<"the matrix is "<<endl;
+	cout<<endl;
+	inp_val.print();
+	cout<<endl;
+	cout<<"the value of determinant is "<<inp_val.det()<<endl;;
+	cout<<endl<<"the inverse of matrix is "<<endl;
+	inp_val.inv();
+	cout<<endl;
+	cout<<"singular value is "<<endl<<inp_val.isSingular();
+	
+	
+	
+	return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Implement a stack class for stacks of integers. Include a default constructor, a destructor and the usual stack operators: push(), pop(), isEmpty(), and isFull(). Use an array to implement the class. Write an appropriate main() program to demonstrate the functions of the class.
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class Stack 
+
+{	
+private:
+   
+   int max;
+   int empty;
+   int top;
+   char *items;
+
+public:
+   Stack(int);
+  ~Stack();
+   void push(char);
+   char pop();
+   int  Empty();
+   int  Full();
+   
+int Stack(int size) 
+   {
+        int max = size;
+        int Empty = -1;
+        int top = Empty;
+        char items = new char[max];
+  }
+
+~Stack()     //Destructor
+        {
+         return delete[] items;
+		}
+
+Stack push(char c)
+{
+  return items[++top] = c;
+}
+
+Stack pop(char) 
+{
+   return items[top--];
+}
+
+Stack is.full()  
+{
+   return top + 1 == max;
+}
+
+Stack is.empty()  
+{
+   return top == Empty;
+}
+
+};
+
+
+
+int main() {
+
+   Stack get_sta(15);   // user input for 15 characters
+   char abc;
+   while ((get_sta = cin.get()) != '\n')
+   
+   if (!get_sta.is.full()) get_sta.push(ch);
+   while (!get_sta.is.empty())
+   cout << get_sta.pop();
+   cout << endl;
+   
+   return 0;
+} 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Implement a fraction class where data members are the fraction’s numerator and denominator. Member functions should include adding two fractions, multiplying two fractions, the division of two fractions, and a function to simplify and display the fractions. You may overload operators. Write an appropriate main() program to demonstrate the functions of the class.
+
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+class Fraction
+
+{
+
+  private:
+
+            int Num,Den;
+
+  public:
+
+
+  Fraction()
+  {
+  	Num = 0;
+  	Den = 0;
+  }
+  Fraction (int x, int y)
+  {
+  	Num = x;
+  	if(y == 0)
+	  {
+	  	cout<<"error!! cannot divide by zero"<<endl;
+	  }
+	else
+	 Den = y;  
+  }
+  
+  Fraction get_add(Fraction temp)  //function to calculate addition
+  {
+  	int x = Num*temp.Den+temp.Num*Den;
+	int y = Den*temp.Den;
+	return Fraction(x,y);
+  }
+  
+  Fraction get_mul(Fraction temp)  //function to calculate multiplication
+  {
+  	int x = Num*temp.Num;
+  	int y = Den*temp.Den;
+  	return Fraction(x,y);
+  }
+  
+  Fraction get_div(Fraction temp)  //function to calculate division
+  {
+  	int x = Num*temp.Den;
+	int y = Den*temp.Num;
+	return Fraction(x,y); 
+  }
+  
+  Fraction get_simple()
+  {
+  	int rem = gcd(Num,Den);
+  	int x = Num/rem;
+  	int y = Den/rem;
+  	return Fraction (Num,Den);
+  }
+  
+  
+  
+  int gcd(int x, int y)
+  {
+  	int rem;
+  	while (x != 0)
+	  {
+	  	rem = y;
+	  	x = y%x;
+	  	x = rem;
+	  }
+	  return y;
+  }
+  
+  void get_ans()   //function to simplify and display fraction
+  {
+  	if (Den == 1)
+  	cout<<Num<<endl;
+  	else
+  	cout<<Num<<"/"<<Den<<endl;
+  }
+  
+
+};
+
+int main()
+
+{
+	
+	int p,q,r,s;
+	cout<<"input values for first fraction:"<<endl;
+	cin>>p;
+	cin>>q;
+	cout<<p<<"/"<<q<<endl;
+	
+	cout<<"input values for second fraction:"<<endl;
+	cin>>r;
+	cin>>s;
+	cout<<r<<"/"<<s<<endl;
+
+    Fraction a(p, q);
+    Fraction b(r, s);
+    Fraction c;
+  
+    c = a.get_add(b);
+    cout<<"the sum of two fractions is ";
+    c.get_ans();
+  
+    cout<<endl;
+  
+    c = a.get_mul(b);
+    cout<<"the multiplication of two fractions is ";
+    c.get_ans(); 
+  
+    cout<<endl;
+  
+    c = a.get_div(b);
+    cout<<"the division of two fractions is ";
+    c.get_ans();
+	
+	cout<<endl; 
+    
+    c = a.get_simple();
+    c.get_ans();
+
+    return 0;
+
+ }
+

@@ -1,0 +1,116 @@
+#include <graphics.h>
+#include <dos.h>
+#include <conio.h> 
+#include <math.h>
+ 
+main()
+{
+   initwindow(1150,500);   //size of the window
+   
+   
+   for(int i = 0 ; i <= 1000 ; i = i + 5)
+    {
+        setcolor(YELLOW);                                  
+        outtextxy(100, 25, "1");outtextxy(600, 25, "6");     //grid layout for parking with numbers
+        outtextxy(200, 25, "2");outtextxy(700, 25, "7");
+        outtextxy(300, 25, "3");outtextxy(800, 25, "8");
+        outtextxy(400, 25, "4");outtextxy(900, 25, "9");
+        outtextxy(500, 25, "5");outtextxy(1000, 25,"0");
+        
+	  
+	    for(int j = 0; j <=1050 ; j = j+100)
+	    {
+	  	    line(50,25,1050,25);
+			line(50+j,25,50+j,150);
+	  	}
+	 
+	  setcolor(LIGHTCYAN);
+	  settextstyle(SIMPLEX_FONT,HORIZ_DIR,2);
+	  outtextxy(50, 200, "welcome to garage tan960, please park in slot 9");   //assigning where to park
+	  
+	  
+	  setcolor(WHITE);
+	  rectangle(50+i,400,150+i,350);   //moving the rectangle horizontally
+	  delay(50);
+      if( 50+i == 800 )
+      break; 
+      cleardevice();
+
+  }
+  
+        setcolor(YELLOW);
+   	    outtextxy(100, 25, "1");outtextxy(600, 25, "6");   // gridlayout
+        outtextxy(200, 25, "2");outtextxy(700, 25, "7");
+        outtextxy(300, 25, "3");outtextxy(800, 25, "8");
+        outtextxy(400, 25, "4");outtextxy(900, 25, "9");
+        outtextxy(500, 25, "5");outtextxy(1000, 25,"0");
+	  
+	    for(int j = 0; j <=1050 ; j = j+100)
+	    {
+	  	    line(50,25,1050,25);
+			line(50+j,25,50+j,150);
+	  	}
+
+       int points[] = {825,350,925,300,950,350,875,400,825,350};       //used poly function to show car turning
+       int points1[] = {850,300,900,300,925,325,875,350,850,300};
+       setcolor(WHITE);
+	   drawpoly(5,points);
+	   cleardevice();
+	   drawpoly(5, points1);
+	   delay(100);
+	   cleardevice();
+	
+    
+   for(int k = 0 ; k <= 1000 ; k = k - 5)
+    {
+   	     setcolor(YELLOW);
+   	    outtextxy(100, 25, "1");outtextxy(600, 25, "6");
+        outtextxy(200, 25, "2");outtextxy(700, 25, "7");
+        outtextxy(300, 25, "3");outtextxy(800, 25, "8");
+        outtextxy(400, 25, "4");outtextxy(900, 25, "9");
+        outtextxy(500, 25, "5");outtextxy(1000, 25,"0");
+	  
+	    for(int j = 0; j <=1050 ; j = j+100)
+	    {
+	  	    line(50,25,1050,25);
+			line(50+j,25,50+j,150);
+	  	}
+	 
+      
+	  setcolor(LIGHTCYAN);
+	  settextstyle(SIMPLEX_FONT,HORIZ_DIR,2);
+	  outtextxy(50, 200, "welcome to garage tan960, please park in slot 9");
+	  setcolor(WHITE);
+	  rectangle(875,275+k,925,375+k);    //vertical movement of the car
+	  delay(100);
+      if( 275+k == 50 )
+      break; 
+      cleardevice();
+    
+    }
+    
+    
+        setcolor(YELLOW);
+   	    outtextxy(100, 25, "1");outtextxy(600, 25, "6");
+        outtextxy(200, 25, "2");outtextxy(700, 25, "7");
+        outtextxy(300, 25, "3");outtextxy(800, 25, "8");
+        outtextxy(400, 25, "4");outtextxy(900, 25, "9");
+        outtextxy(500, 25, "5");outtextxy(1000, 25,"0");
+	  
+	    for(int j = 0; j <=1050 ; j = j+100)
+	    {
+	  	    line(50,25,1050,25);
+			line(50+j,25,50+j,150);
+	  	}
+	 
+      setcolor(GREEN);
+      rectangle(875,50,925,150);
+      outtextxy(50, 225, "car parked in slot 9");              //indication of parked car
+      delay(500);
+      setcolor(LIGHTCYAN);
+      outtextxy(50, 250, "press any key to exit...");   //exit promt
+
+     getch();
+     closegraph();
+     return 0;
+}
